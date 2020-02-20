@@ -1,6 +1,6 @@
 /************************************************ 
 Author: Ahmet Enes Görmez
-Purpose: This class includes a functionality for
+Purpose: This class provides functionality for
 evaluating strings in simple mathematical operations
 
 
