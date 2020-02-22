@@ -5,15 +5,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class EvaluatorTest {
-	StringEvaluator EvaluatorInstance= new StringEvaluator();
+	StringEvaluator EvaluatorInstance;
 	@BeforeEach
 	void setUp() throws Exception {
-		
+		EvaluatorInstance = new StringEvaluator();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		//EvaluatorInstance=null;
+		EvaluatorInstance=null;
 	}
 
 	@Test
