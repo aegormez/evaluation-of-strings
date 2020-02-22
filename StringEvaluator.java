@@ -7,19 +7,22 @@ evaluating strings in simple mathematical operations
 *************************************************/
 
 
-import java.util.Scanner;
 import java.util.Stack;
-import java.lang.CharSequence;
 
 public class StringEvaluator{
-    public static String calculate(String sample) {
+    public String calculate(String sample) {
 
-        Stack mystack = new Stack();
+        Stack<Character> mystack = new Stack<Character>();
         char chr;
         for (int i = 0; i < sample.length(); i++) {
             chr = sample.charAt(sample.length() - 1 - i);
             if (chr != ' ') {
+                //ASCII values of 44 and 46 are included for future use (in case of input being rational number)
+            	if((int)chr>=42&&(int)chr<=57) 
                 mystack.push(chr);
+            	else {
+            		return "Invalid String";
+            	}
             }
         }
         System.out.println(mystack);
