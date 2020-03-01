@@ -8,10 +8,9 @@ evaluating strings in simple mathematical operations
 
 
 import java.util.Stack;
-
 public class StringEvaluator{
+    
     public String calculate(String sample) {
-
         Stack<Character> mystack = new Stack<Character>();
         char chr;
         for (int i = 0; i < sample.length(); i++) {
@@ -25,7 +24,6 @@ public class StringEvaluator{
             	}
             }
         }
-        System.out.println(mystack);
         char operator=' ';
         double operand1=0;
         double operand2=0;
@@ -55,13 +53,20 @@ public class StringEvaluator{
                 }catch(Exception EmptyStackException){
                     chr = ' ';
                 }
+                try {
                 operand1=makeCalculation(operand1,operand2,operator,chr,mystack);
+                }catch (Exception EmptyStackException) {
+                	return "Invalid String";
+                }
                 operand2Complete=false;
                 operand2=0;
                 operator=' ';
             }
         }
-        return String.valueOf(operand1);
+        if(operand1Complete==true&&operand2Complete==false&&operator!=' ') {
+        	return "Invalid String";
+        }
+        return ModifyTheResult.Modify(String.valueOf(operand1));
 
     }
     private static double makeCalculation(double operand1,double operand2,char operator,char nextOperator,Stack incomingStack){
@@ -91,8 +96,6 @@ public class StringEvaluator{
         return result;
     }
     private static double executeSubCalculation(double operand1,Stack incomingStack){
-        
-        System.out.println("You have entered into a recursive function!");
         char operator =(char)incomingStack.pop();
         char cr = (char)incomingStack.peek();
         double operand2=0;
