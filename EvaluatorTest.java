@@ -36,4 +36,24 @@ class EvaluatorTest {
 	void test5() {
 		assertEquals("Invalid String",EvaluatorInstance.calculate("4+3*?"));
 	}
+	@Test
+	void test6() {
+		assertEquals("Invalid String",EvaluatorInstance.calculate("4+3*2-"));
+	}
+	@Test
+	void test7() {
+		assertEquals("Invalid String",EvaluatorInstance.calculate("4+3*2+"));
+	}@Test
+	void test8() {
+		assertEquals("Invalid String",EvaluatorInstance.calculate("4+*3*2+"));
+	}@Test
+	void test9() {
+		assertEquals("Invalid String",EvaluatorInstance.calculate("4++3*2+"));
+	}@Test
+	void test10() {
+		assertEquals("Invalid String",EvaluatorInstance.calculate("4+3**2+"));
+	}@Test
+	void test11() {
+		assertEquals("Invalid String",EvaluatorInstance.calculate("4+3*/2+"));
+	}
 }
